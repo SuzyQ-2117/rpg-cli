@@ -1,11 +1,11 @@
 import models.Player;
+import services.InitialiseGame;
 import services.PlayerCreator;
 
 import java.io.File;
 import java.util.Scanner;
 
 import static game.AdvanceTime.advanceTime;
-import static utils.Constants.SAVE_FILE;
 import static utils.GameSaveManager.loadGame;
 import static utils.GameSaveManager.saveGame;
 
@@ -16,33 +16,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the RPG CLI!");
 
-        File saveFile = new File(SAVE_FILE);
-        if (saveFile.exists()) {
-            System.out.print("Saved character found. Load it? (yes/no): ");
-            if (scanner.nextLine().trim().equalsIgnoreCase("yes")) {
-                Player loaded = loadGame();
-                if (loaded != null) {
-                    player = loaded;
-                    System.out.println("Loaded saved character: " + player.getName() + " (Level " + player.getLevel() + ")");
-                } else {
-                    System.out.println("Failed to load save file. Exiting to prevent overwriting.");
-                    return;
-                }
-            } else {
-                System.out.print("This will overwrite your save. Are you sure? (yes/no): ");
-                if (scanner.nextLine().trim().equalsIgnoreCase("yes")) {
-                    player = PlayerCreator.createNewPlayer(scanner);
-                    System.out.println(player);
-                    saveGame(player);
-                } else {
-                    System.out.println("Exiting.");
-                    return;
-                }
-            }
-        } else {
-            player = PlayerCreator.createNewPlayer(scanner);
-            saveGame(player);
-        }
+        player = InitialiseGame.start(scanner);
+        if (player == null) return;
 
         while (true) {
             System.out.println("\nWhat would you like to do?");
