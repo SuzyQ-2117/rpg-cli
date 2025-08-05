@@ -5,11 +5,11 @@ import java.io.File;
 import java.util.Scanner;
 
 import static game.AdvanceTime.advanceTime;
+import static utils.Constants.SAVE_FILE;
 import static utils.GameSaveManager.loadGame;
 import static utils.GameSaveManager.saveGame;
 
 public class Main {
-    private static final String SAVE_FILE = "save.dat";
     private static Scanner scanner = new Scanner(System.in);
     private static Player player;
 
@@ -20,7 +20,14 @@ public class Main {
         if (saveFile.exists()) {
             System.out.print("Saved character found. Load it? (yes/no): ");
             if (scanner.nextLine().trim().equalsIgnoreCase("yes")) {
-                loadGame(player);
+                Player loaded = loadGame();
+                if (loaded != null) {
+                    player = loaded;
+                    System.out.println("Loaded saved character: " + player.getName() + " (Level " + player.getLevel() + ")");
+                } else {
+                    System.out.println("Failed to load save file. Exiting to prevent overwriting.");
+                    return;
+                }
             } else {
                 System.out.print("This will overwrite your save. Are you sure? (yes/no): ");
                 if (scanner.nextLine().trim().equalsIgnoreCase("yes")) {

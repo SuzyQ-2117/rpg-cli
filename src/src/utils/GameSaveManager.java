@@ -1,9 +1,9 @@
 package utils;
-import models.Player;
 
 import java.io.*;
 
-import static java.awt.Event.SAVE_FILE;
+import models.Player;
+import static utils.Constants.SAVE_FILE;
 
 public class GameSaveManager {
 
@@ -23,12 +23,12 @@ public class GameSaveManager {
     }
 
     // loads in a previously saved game
-    public static void loadGame(Player player) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(String.valueOf(SAVE_FILE)))) {
-            player = (Player) ois.readObject();
-            System.out.println("Loaded saved character: " + player.getName() + " (Level " + player.getLevel() + ")");
+    public static Player loadGame() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(SAVE_FILE))) {
+            return (Player) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("No saved game found or failed to load.");
+            return null;
         }
     }
 
