@@ -1,7 +1,7 @@
 {
   "packages": {
     ".": {
-      "release-type": "java",
+      "release-type": "maven",
       "package-name": "rpg-cli",
       "skip-snapshot": true
     }
