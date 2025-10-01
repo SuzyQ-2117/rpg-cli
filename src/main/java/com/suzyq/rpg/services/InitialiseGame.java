@@ -1,8 +1,8 @@
-package services;
+package com.suzyq.rpg.services;
 
-import models.Player;
-import utils.Constants;
-import utils.GameSaveManager;
+import com.suzyq.rpg.models.Player;
+import com.suzyq.rpg.utils.Constants;
+import com.suzyq.rpg.utils.GameSaveManager;
 
 import java.io.File;
 import java.util.Scanner;

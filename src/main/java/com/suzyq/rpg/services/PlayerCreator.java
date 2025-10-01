@@ -1,9 +1,9 @@
-package services;
+package com.suzyq.rpg.services;
 
-import models.Knight;
-import models.Mage;
-import models.Player;
-import models.Rogue;
+import com.suzyq.rpg.models.Knight;
+import com.suzyq.rpg.models.Mage;
+import com.suzyq.rpg.models.Player;
+import com.suzyq.rpg.models.Rogue;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package models;
+package com.suzyq.rpg.models;
 
 import java.io.Serializable;
 

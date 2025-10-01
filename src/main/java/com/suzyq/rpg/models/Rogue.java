@@ -1,4 +1,4 @@
-package models;
+package com.suzyq.rpg.models;
 
 public class Rogue extends Player {
     public Rogue(String name) {

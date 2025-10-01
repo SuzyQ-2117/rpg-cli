@@ -1,4 +1,4 @@
-package utils;
+package com.suzyq.rpg.utils;
 
 public final class Constants {
     private Constants() {} // prevent instantiation

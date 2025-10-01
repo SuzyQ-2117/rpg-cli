@@ -1,4 +1,4 @@
-package models;
+package com.suzyq.rpg.models;
 
 public class Enemy {
     private String name;

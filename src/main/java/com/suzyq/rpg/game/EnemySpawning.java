@@ -1,7 +1,7 @@
-package game;
+package com.suzyq.rpg.game;
 
-import models.Enemy;
-import models.Player;
+import com.suzyq.rpg.models.Enemy;
+import com.suzyq.rpg.models.Player;
 
 public class EnemySpawning {
 

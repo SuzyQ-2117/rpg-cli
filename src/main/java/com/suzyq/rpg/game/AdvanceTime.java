@@ -1,11 +1,11 @@
-package game;
+package com.suzyq.rpg.game;
 
-import models.Enemy;
-import models.Player;
+import com.suzyq.rpg.models.Enemy;
+import com.suzyq.rpg.models.Player;
 
 import java.util.Scanner;
 
-import static game.EnemySpawning.spawnEnemy;
+import static com.suzyq.rpg.game.EnemySpawning.spawnEnemy;
 
 public class AdvanceTime {
     // advanceTime() always spawns a scaled enemy

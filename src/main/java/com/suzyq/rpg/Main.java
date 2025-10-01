@@ -1,22 +1,23 @@
-import models.Player;
-import services.InitialiseGame;
-import services.PlayerCreator;
+package com.suzyq.rpg;
+
+import com.suzyq.rpg.models.Player;
+import com.suzyq.rpg.services.InitialiseGame;
+import com.suzyq.rpg.services.PlayerCreator;
 
 import java.io.File;
 import java.util.Scanner;
 
-import static game.AdvanceTime.advanceTime;
-import static utils.GameSaveManager.loadGame;
-import static utils.GameSaveManager.saveGame;
+import static com.suzyq.rpg.game.AdvanceTime.advanceTime;
+import static com.suzyq.rpg.utils.GameSaveManager.loadGame;
+import static com.suzyq.rpg.utils.GameSaveManager.saveGame;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
-    private static Player player;
 
     public static void main(String[] args) {
         System.out.println("Welcome to the RPG CLI!");
 
-        player = InitialiseGame.start(scanner);
+        Player player = InitialiseGame.start(scanner);
         if (player == null) return;
 
         while (true) {

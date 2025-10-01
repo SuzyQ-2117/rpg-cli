@@ -1,8 +1,8 @@
-package utils;
+package com.suzyq.rpg.utils;
 
 import java.io.*;
 
-import models.Player;
+import com.suzyq.rpg.models.Player;
 
 public class GameSaveManager {
 
@@ -30,10 +30,15 @@ public class GameSaveManager {
     // loads in a previously saved game
     public static Player loadGame(String fileName) {
         File saveFile = new File(Constants.SAVE_DIRECTORY, fileName);
+        System.out.println(fileName);
+        System.out.println(saveFile);
+        System.out.println("Loading save from: " + saveFile.getAbsolutePath());
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(saveFile))) {
             return (Player) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("No saved game found or failed to load.");
+            System.out.println("Failed to load save from: " + saveFile.getAbsolutePath());
+            e.printStackTrace();
             return null;
         }
     }
