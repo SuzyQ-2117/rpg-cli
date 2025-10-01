@@ -31,3 +31,6 @@ replay_pid*
 # Save files
 *.dat
 /saves/
+
+# folders
+/target
